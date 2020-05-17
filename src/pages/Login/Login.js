@@ -1,12 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './style.scss';
+import Auth from '../../data/auth';
 
-function handleSubmit() {}
-
-function Login() {
+function Login({ history }) {
+  const auth = new Auth();
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const result = await auth.login(login, password);
+    if (result) {
+      history.push('/');
+    }
+  };
+
+  useEffect(() => {
+    auth.logout();
+  }, [auth]);
   return (
     <div className="page login">
       <div className="container">

@@ -1,0 +1,15 @@
+@import './components/variables';
+@import './components/mixins';
+@import './components/reset';
+@import './components/form';
+.container {
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.h1 {
+  margin-bottom: 0.5em;
+}
+.body-text {
+  color: $main-color;
+  margin-bottom: 1em;
+}

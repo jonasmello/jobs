@@ -1,0 +1,8 @@
+@mixin font-reg {
+  font-family: $font;
+  font-weight: 400;
+}
+@mixin font-bold {
+  @include font-reg();
+  font-weight: 600;
+}

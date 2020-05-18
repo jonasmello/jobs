@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import DragonForm from '../../components/DragonForm';
 
 import Dragons from '../../data/dragon';
+import Header from '../../components/Header';
 
 function DragonEdit({ history, match }) {
   const { id } = match.params;
   const [dragonData, setDragonData] = useState({});
-  console.log('props', id);
 
   const text = {
     title: 'Editar dragão',
@@ -26,13 +26,18 @@ function DragonEdit({ history, match }) {
       if (id) {
         const dragon = new Dragons();
         const response = await dragon.get(id);
-        setDragonData(response)
+        setDragonData(response);
       }
     };
     fetchDragon();
   }, [id]);
 
-  return dragonData.id ? <DragonForm dragonData={dragonData} saveDragon={handleSubmit} text={text} /> : '';
+  return (
+    <>
+      <Header />
+      {dragonData.id ? <DragonForm dragonData={dragonData} saveDragon={handleSubmit} text={text} /> : ''}
+    </>
+  );
 }
 
 export default DragonEdit;

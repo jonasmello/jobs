@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import { FaDragon } from 'react-icons/fa';
-import Header from '../Header';
 import FormField from '../FormField/FormField';
 
 function DragonForm({ saveDragon, dragonData = {}, text = {} }) {
@@ -20,8 +19,7 @@ function DragonForm({ saveDragon, dragonData = {}, text = {} }) {
   };
 
   return (
-    <>
-      <Header />
+
       <div className="page dragon-form">
         <div className="container">
           <div className="top-icon">
@@ -44,7 +42,6 @@ function DragonForm({ saveDragon, dragonData = {}, text = {} }) {
           </form>
         </div>
       </div>
-    </>
   );
 }
 

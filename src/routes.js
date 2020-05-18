@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import { Router, Switch, Route, Redirect } from 'react-router';
 import Auth from './data/auth';
 import Home from './pages/Home';
+import DragonDetail from './pages/DragonDetail';
 
 const PrivateRoute = (props) => {
   const auth = new Auth();
@@ -21,6 +22,7 @@ function Routes() {
         <Switch>
           <PrivateRoute exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/dragon/:id" component={DragonDetail} />
           <Route component={() => <h1>404</h1>} />
         </Switch>
       </Router>

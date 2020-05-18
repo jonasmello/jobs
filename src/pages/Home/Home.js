@@ -10,11 +10,13 @@ const dragons = new Dragons();
 function Home({ history }) {
   const [dragonList, setDragonList] = useState([]);
   const [preventDouble, setPreventDouble] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await dragons.getAll();
       setDragonList(data);
+      setLoading(false);
     };
     fetchData();
   }, []);
@@ -38,33 +40,37 @@ function Home({ history }) {
           </div>
           <h1>Dragões</h1>
           <div className="dragon-list">
-            {dragonList.length
-              ? dragonList.map((dragon) => (
-                  <div className="dragon-item" key={dragon.id}>
-                    <a className="dragon-name" href={`/dragon/${dragon.id}`}>
-                      {dragon.name}
-                    </a>
-                    <div className="dragon-actions">
-                      <button
-                        title="Editar Dragão"
-                        className="action-button"
-                        disabled={preventDouble ? 'disabled' : ''}
-                        onClick={() => history.push(`dragon/edit/${dragon.id}`)}
-                      >
-                        <FaEdit />
-                      </button>
-                      <button
+            {loading ? (
+              <p className="loading-message">Carregando...</p>
+            ) : dragonList.length ? (
+              dragonList.map((dragon) => (
+                <div className="dragon-item" key={dragon.id}>
+                  <a className="dragon-name" href={`/dragon/${dragon.id}`}>
+                    {dragon.name}
+                  </a>
+                  <div className="dragon-actions">
+                    <button
+                      title="Editar Dragão"
+                      className="action-button"
+                      disabled={preventDouble ? 'disabled' : ''}
+                      onClick={() => history.push(`dragon/edit/${dragon.id}`)}
+                    >
+                      <FaEdit />
+                    </button>
+                    <button
                       title="Remover Dragão"
-                        className="action-button"
-                        disabled={preventDouble ? 'disabled' : ''}
-                        onClick={() => handleDelete(dragon.id)}
-                      >
-                        <FaTrashAlt />
-                      </button>
-                    </div>
+                      className="action-button"
+                      disabled={preventDouble ? 'disabled' : ''}
+                      onClick={() => handleDelete(dragon.id)}
+                    >
+                      <FaTrashAlt />
+                    </button>
                   </div>
-                ))
-              : ''}
+                </div>
+              ))
+            ) : (
+              ''
+            )}
           </div>
           <button className="action-button big" onClick={() => history.push('dragon/add')}>
             Adicionar dragão

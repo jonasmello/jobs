@@ -1,0 +1,14 @@
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row-reverse;
+  padding: 15px;
+  .header-link {
+    color: white;
+    svg {
+      display: inline-block;
+      vertical-align: top;
+      margin-left: 0.2em;
+    }
+  }
+}

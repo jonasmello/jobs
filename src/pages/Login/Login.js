@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { FaUser } from 'react-icons/fa';
 
-import './style.scss';
 import Auth from '../../data/auth';
 
 function Login({ history }) {
@@ -22,6 +22,9 @@ function Login({ history }) {
   return (
     <div className="page login">
       <div className="container">
+        <div className="top-icon">
+          <FaUser />
+        </div>
         <h1 className="h1">Login</h1>
         <p className="body-text">Digite seu usuário e senha para acessar a aplicação:</p>
         <form action="" method="post" onSubmit={handleSubmit}>
@@ -38,7 +41,9 @@ function Login({ history }) {
             />
           </div>
           <div>
-            <button type="submit">Entrar</button>
+            <button className="form-button" type="submit">
+              Entrar
+            </button>
           </div>
         </form>
       </div>

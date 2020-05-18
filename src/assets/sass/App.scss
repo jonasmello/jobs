@@ -1,10 +1,24 @@
 @import './components/variables';
 @import './components/mixins';
 @import './components/reset';
+@import './components/header';
 @import './components/form';
+
+.page {
+  padding-top: 10vh;
+}
+.top-icon {
+  font-size: 50px;
+  text-align: center;
+}
 .container {
-  padding: 0 15px;
   margin: 0 auto;
+  max-width: 400px;
+  padding: 0 15px;
+}
+h1,
+.body-text {
+  text-align: center;
 }
 .h1 {
   margin-bottom: 0.5em;
@@ -12,4 +26,29 @@
 .body-text {
   color: $main-color;
   margin-bottom: 1em;
+}
+.action-button {
+  background-color: transparent;
+  border-radius: 50%;
+  border: 0;
+  color: white;
+  display: inline-block;
+  font-size: 15px;
+  margin-left: auto;
+  opacity: 0.6;
+  padding: 2px;
+  transition: opacity 200ms ease-in-out;
+  &:hover {
+    opacity: 1;
+  }
+  &.big {
+    display: block;
+    font-size: 30px;
+    line-height: 1em;
+    svg {
+      display: inline-block;
+      vertical-align: top;
+      margin-left: 0.2em;
+    }
+  }
 }

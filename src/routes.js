@@ -24,9 +24,9 @@ function Routes() {
         <Switch>
           <PrivateRoute exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/dragon/add" component={DragonAdd} />
-          <Route exact path="/dragon/edit/:id" component={DragonEdit} />
-          <Route exact path="/dragon/:id" component={DragonDetail} />
+          <PrivateRoute exact path="/dragon/add" component={DragonAdd} />
+          <PrivateRoute exact path="/dragon/edit/:id" component={DragonEdit} />
+          <PrivateRoute exact path="/dragon/:id" component={DragonDetail} />
           <Route component={() => <h1>404</h1>} />
         </Switch>
       </Router>

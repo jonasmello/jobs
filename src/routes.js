@@ -7,6 +7,7 @@ import Auth from './data/auth';
 import Home from './pages/Home';
 import DragonDetail from './pages/DragonDetail';
 import DragonAdd from './pages/DragonAdd';
+import DragonEdit from './pages/DragonEdit';
 
 const PrivateRoute = (props) => {
   const auth = new Auth();
@@ -24,6 +25,7 @@ function Routes() {
           <PrivateRoute exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/dragon/add" component={DragonAdd} />
+          <Route exact path="/dragon/edit/:id" component={DragonEdit} />
           <Route exact path="/dragon/:id" component={DragonDetail} />
           <Route component={() => <h1>404</h1>} />
         </Switch>

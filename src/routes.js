@@ -4,6 +4,7 @@ import { createBrowserHistory } from 'history';
 import Login from './pages/Login';
 import { Router, Switch, Route, Redirect } from 'react-router';
 import Auth from './data/auth';
+import Home from './pages/Home';
 
 const PrivateRoute = (props) => {
   const auth = new Auth();
@@ -18,7 +19,7 @@ function Routes() {
     <div>
       <Router history={createBrowserHistory()}>
         <Switch>
-          <PrivateRoute exact path="/" component={() => <div>Home</div>} />
+          <PrivateRoute exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route component={() => <h1>404</h1>} />
         </Switch>

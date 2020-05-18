@@ -12,3 +12,16 @@ body {
   background-image: linear-gradient(to right, $bg-color-1, $bg-color-2);
   color: #ffffff;
 }
+a {
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+button {
+  cursor: pointer;
+  &:focus {
+    outline: 0;
+  }
+}
